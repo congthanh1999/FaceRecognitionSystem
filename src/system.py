@@ -81,6 +81,8 @@ class FaceRecognitionSystem:
 
     def recognize_face_via_camera(self):
         cap = cv2.VideoCapture(0)
+        cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
+        cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
 
         if not cap.isOpened():
             raise IOError("Cannot open webcam")
