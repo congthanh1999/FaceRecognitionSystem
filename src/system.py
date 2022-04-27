@@ -5,23 +5,21 @@ import numpy as np
 import cv2
 from scipy import spatial
 import time
-import glob
 from tqdm import tqdm
-import json
 
 try:
-    import feature_extractor
-    import face_detector
+    import FeatureExtractor
+    import FaceDetector
 except:
-    from src import feature_extractor
-    from src import face_detector
+    from src import FeatureExtractor
+    from src import FaceDetector
 
 
 class FaceRecognitionSystem:
     def __init__(self, dataset_path, image_folder):
-        self.extractor = feature_extractor.InceptionResNetV2_FE()
+        self.extractor = FeatureExtractor.InceptionResNetV2_FE()
 
-        self.detector = face_detector.FaceDetector()
+        self.detector = FaceDetector.FaceDetector()
 
         self.dataset_path = dataset_path
         if not os.path.exists(self.dataset_path):
